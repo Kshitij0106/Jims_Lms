@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="6dp"
+    app:cardCornerRadius="6dp"
+    app:cardUseCompatPadding="true"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginBottom="5dp"
+    android:layout_marginTop="5dp"
+    android:background="@drawable/edit_text_background"
+    android:id="@+id/notesCardViewLayout">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_text_background">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/titleMyNotes"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="left|center"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="10dp"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/view1Notes"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#C1B8B8"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleMyNotes"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/subjectMyNotes"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="left|center"
+            android:paddingLeft="10dp"
+            android:textColor="#000"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view1Notes" />
+
+        <View
+            android:id="@+id/view2Notes"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#C1B8B8"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/subjectMyNotes"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textMyNotes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left|center"
+            android:maxLength="167"
+            android:paddingLeft="10dp"
+            android:paddingRight="3dp"
+            android:layout_marginTop="5dp"
+            android:textColor="#000"
+            android:textSize="16sp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view2Notes" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

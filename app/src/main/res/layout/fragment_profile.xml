@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.ProfileFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:background="@color/jims_color">
+
+        <ImageView
+            android:id="@+id/goBackProfile"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:padding="3dp"
+            android:src="@drawable/go_back"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/scheduleText"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:text="Profile"
+            android:textColor="#fff"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/goBackProfile"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/userPicProfile"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/edit_text_background"
+            android:backgroundTint="@color/jims_color2"
+            android:padding="10dp"
+            android:src="@drawable/profile_pic_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/goBackProfile" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/userNameProfile"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="20dp"
+            android:gravity="left|center"
+            android:maxLength="55"
+            android:padding="4dp"
+            android:textColor="#fff"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/userPicProfile"
+            app:layout_constraintTop_toTopOf="@+id/userPicProfile" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/userCourseSemProfile"
+            android:layout_width="200dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="5dp"
+            android:gravity="left|center"
+            android:padding="4dp"
+            android:textColor="#fff"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/userPicProfile"
+            app:layout_constraintTop_toBottomOf="@+id/userNameProfile" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/profileTab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/constraintLayout2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:background="@color/jims_color"
+        app:tabGravity="fill"
+        app:tabIndicatorColor="#C1B8B8"
+        app:tabIndicatorHeight="2dp"
+        app:tabMode="fixed"
+        app:tabSelectedTextColor="#C1B8B8"
+        app:tabTextColor="#fff" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPagerProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profileTab"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        app:layout_constraintTop_toBottomOf="@+id/profileTab" />
+
+</RelativeLayout>

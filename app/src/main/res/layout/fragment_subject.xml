@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.SubjectFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayoutCart"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp"
+        android:background="@color/jims_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/goBackSubjectFragment"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/go_back"
+            android:padding="3dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/subjectNameSubjectFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginLeft="5dp"
+            android:gravity="center"
+            android:textColor="#fff"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/goBackSubjectFragment"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/syllabusSubjectFragment"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="48dp"
+        android:drawableLeft="@drawable/syllabus_subject"
+        android:drawablePadding="15dp"
+        android:gravity="left|center"
+        android:paddingLeft="10dp"
+        android:text="Syllabus"
+        android:textColor="#000"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.017"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayoutCart" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/subjectNotesSubjectFragment"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:drawableLeft="@drawable/notes_subject"
+        android:drawablePadding="15dp"
+        android:gravity="left|center"
+        android:paddingLeft="15dp"
+        android:text="Subject Notes"
+        android:textColor="#000"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/syllabusSubjectFragment" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/myNotesSubjectFragment"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:drawableLeft="@drawable/notes"
+        android:drawablePadding="15dp"
+        android:gravity="left|center"
+        android:paddingLeft="15dp"
+        android:text="My Notes"
+        android:textColor="#000"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/subjectNotesSubjectFragment" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/assignmentSubjectFragment"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:drawableLeft="@drawable/assignment_subject"
+        android:drawablePadding="15dp"
+        android:gravity="left|center"
+        android:paddingLeft="13dp"
+        android:text="Assignment"
+        android:textColor="#000"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/myNotesSubjectFragment" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/attendanceSubjectFragment"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:drawablePadding="15dp"
+        android:gravity="left|center"
+        android:paddingLeft="13dp"
+        android:text="Attendance"
+        android:drawableLeft="@drawable/attendance_subject"
+        android:textColor="#000"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/assignmentSubjectFragment" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/edit_text_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/attendanceSubjectFragment">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="200dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:text="About the Teacher"
+            android:textColor="#000"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageSubjectTeacher"
+            android:layout_width="80dp"
+            android:layout_height="90dp"
+            android:layout_marginLeft="10dp"
+            android:padding="4dp"
+            app:layout_constraintBottom_toTopOf="@+id/contactTeacherButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <TextView
+            android:id="@+id/nameSubjectTeacher"
+            android:layout_width="200dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:gravity="left|center"
+            android:paddingLeft="5dp"
+            android:textColor="#000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/imageSubjectTeacher"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <TextView
+            android:id="@+id/mailSubjectTeacher"
+            android:layout_width="250dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="5dp"
+            android:gravity="left|center"
+            android:paddingLeft="5dp"
+            android:textColor="#000"
+            android:maxLength="35"
+            android:textIsSelectable="true"
+            app:layout_constraintBottom_toTopOf="@+id/contactTeacherButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/imageSubjectTeacher"
+            app:layout_constraintTop_toBottomOf="@+id/nameSubjectTeacher"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/contactTeacherButton"
+            android:layout_width="300dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:text="Contact"
+            android:textColor="@color/jims_color"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

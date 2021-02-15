@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardUseCompatPadding="true"
+    app:cardCornerRadius="6dp"
+    android:elevation="6dp"
+    android:background="#4DD0E1"
+    android:layout_margin="10dp"
+    android:id="@+id/cardViewCourses">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:background="#4DD0E1">
+
+        <ImageView
+            android:id="@+id/coursePicCardView"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="#4DD0E1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/courseNameCardView"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="left|center"
+            android:textColor="#fff"
+            android:paddingLeft="10dp"
+            android:textSize="16sp"
+            android:background="#4DD0E1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/coursePicCardView" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/courseDescCardView"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="left|center"
+            android:textColor="#fff"
+            android:background="#4DD0E1"
+            android:paddingLeft="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/courseNameCardView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="5dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

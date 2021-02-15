@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.HomePageFragment">
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeLayoutHomePage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/clHomePage"
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentRight="true"
+                        android:background="@color/jims_color">
+
+                        <ImageView
+                            android:id="@+id/userNameLogo"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_margin="15dp"
+                            android:src="@drawable/user_name"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/userNameHomePage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="5dp"
+                            android:gravity="left|center"
+                            android:padding="4dp"
+                            android:textColor="#fff"
+                            android:textSize="16sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/userNameLogo"
+                            app:layout_constraintStart_toEndOf="@+id/userNameLogo"
+                            app:layout_constraintTop_toTopOf="@+id/userNameLogo" />
+
+                        <EditText
+                            android:id="@+id/searchSubject"
+                            android:layout_width="300dp"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/edit_text_background"
+                            android:hint="Search Subject"
+                            android:paddingLeft="10dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/userNameHomePage" />
+
+                        <ImageView
+                            android:id="@+id/searchSubjectButton"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@drawable/edit_text_background"
+                            android:padding="5dp"
+                            android:src="@drawable/search_button"
+                            app:layout_constraintBottom_toBottomOf="@+id/searchSubject"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/searchSubject"
+                            app:layout_constraintTop_toTopOf="@+id/searchSubject" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/clsScheduleButton"
+                        android:layout_width="300dp"
+                        android:layout_height="50dp"
+                        android:layout_below="@id/clHomePage"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="50dp"
+                        android:backgroundTint="@color/jims_color2"
+                        android:text="Today Schedule"
+                        android:textAllCaps="false"
+                        android:textColor="#fff"
+                        android:textSize="16sp"
+                        app:cornerRadius="10dp" />
+
+                    <View
+                        android:id="@+id/v1"
+                        android:layout_width="250dp"
+                        android:layout_height="2dp"
+                        android:layout_below="@id/clsScheduleButton"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="100dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="100dp"
+                        android:background="#000" />
+
+                    <GridLayout
+                        android:id="@+id/gridLayoutHomePage"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_below="@+id/v1"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
+                        android:alignmentMode="alignMargins"
+                        android:background="@drawable/edit_text_background"
+                        android:columnCount="3"
+                        android:columnOrderPreserved="false"
+                        android:rowCount="2">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardViewProfile"
+                            android:layout_width="100dp"
+                            android:layout_height="70dp"
+                            android:layout_margin="14dp"
+                            app:cardCornerRadius="10dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="90dp"
+                                    android:layout_height="50dp"
+                                    android:layout_gravity="center"
+                                    android:padding="5dp"
+                                    android:src="@drawable/profile_icon" />
+
+                                <TextView
+                                    android:layout_width="90dp"
+                                    android:layout_height="20dp"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:text="Profile"
+                                    android:textColor="#000" />
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardViewMyNotes"
+                            android:layout_width="100dp"
+                            android:layout_height="70dp"
+                            android:layout_margin="14dp"
+                            app:cardCornerRadius="10dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="90dp"
+                                    android:layout_height="50dp"
+                                    android:layout_gravity="center"
+                                    android:padding="5dp"
+                                    android:src="@drawable/notes_icon" />
+
+                                <TextView
+                                    android:layout_width="90dp"
+                                    android:layout_height="20dp"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:text="My Notes"
+                                    android:textColor="#000" />
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardViewAttendance"
+                            android:layout_width="100dp"
+                            android:layout_height="70dp"
+                            android:layout_margin="14dp"
+                            app:cardCornerRadius="10dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="90dp"
+                                    android:layout_height="50dp"
+                                    android:layout_gravity="center"
+                                    android:padding="5dp"
+                                    android:src="@drawable/attendance_icon" />
+
+                                <TextView
+                                    android:layout_width="90dp"
+                                    android:layout_height="20dp"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:text="Attendance"
+                                    android:textColor="#000" />
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardViewToDo"
+                            android:layout_width="100dp"
+                            android:layout_height="70dp"
+                            android:layout_margin="14dp"
+                            app:cardCornerRadius="10dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="90dp"
+                                    android:layout_height="50dp"
+                                    android:layout_gravity="center"
+                                    android:padding="5dp"
+                                    android:src="@drawable/to_do_icon" />
+
+                                <TextView
+                                    android:layout_width="90dp"
+                                    android:layout_height="20dp"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:text="To Do List"
+                                    android:textColor="#000" />
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardViewAssignment"
+                            android:layout_width="100dp"
+                            android:layout_height="70dp"
+                            android:layout_margin="14dp"
+                            app:cardCornerRadius="10dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="90dp"
+                                    android:layout_height="50dp"
+                                    android:layout_gravity="center"
+                                    android:padding="5dp"
+                                    android:src="@drawable/assignment_icon" />
+
+                                <TextView
+                                    android:layout_width="90dp"
+                                    android:layout_height="20dp"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:text="Assignment"
+                                    android:textColor="#000" />
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardViewFavSubjects"
+                            android:layout_width="100dp"
+                            android:layout_height="70dp"
+                            android:layout_margin="14dp"
+                            app:cardCornerRadius="10dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="90dp"
+                                    android:layout_height="50dp"
+                                    android:layout_gravity="center"
+                                    android:padding="5dp"
+                                    android:src="@drawable/bookmark_icon" />
+
+                                <TextView
+                                    android:layout_width="90dp"
+                                    android:layout_height="20dp"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:text="Favorite"
+                                    android:textColor="#000" />
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                    </GridLayout>
+
+                    <View
+                        android:id="@+id/v2"
+                        android:layout_width="250dp"
+                        android:layout_height="2dp"
+                        android:layout_below="@id/gridLayoutHomePage"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="100dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="100dp"
+                        android:background="#000" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/homePageRecyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@id/v2"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="10dp" />
+
+                    <TextView
+                        android:id="@+id/userCourseText"
+                        android:layout_width="200dp"
+                        android:layout_height="2dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:textColor="#fff"
+                        android:textSize="1sp" />
+
+                    <TextView
+                        android:id="@+id/userSemText"
+                        android:layout_width="10dp"
+                        android:layout_height="2dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/userShiftText"
+                        android:layout_width="10dp"
+                        android:layout_height="2dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
