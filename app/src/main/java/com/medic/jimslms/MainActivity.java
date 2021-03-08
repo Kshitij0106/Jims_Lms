@@ -15,4 +15,5 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportFragmentManager().beginTransaction().add(R.id.mainActivity,new LogInFragment()).commit();
     }
+
 }

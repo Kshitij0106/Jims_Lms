@@ -20,6 +20,15 @@ public class AssignmentAdapter extends RecyclerView.Adapter<AssignmentAdapter.As
 
     private Context ctx;
     private List<Assignment> assignmentList;
+    private OnCardClickListener adapterListener;
+
+    public interface OnCardClickListener{
+        void onAssignmentClicked(int pos,String name);
+    }
+
+    public void setOnCardClickedListener(OnCardClickListener onCardClickListener){
+        adapterListener = onCardClickListener;
+    }
 
     public AssignmentAdapter(Context ctx, List<Assignment> assignmentList) {
         this.ctx = ctx;
@@ -29,13 +38,6 @@ public class AssignmentAdapter extends RecyclerView.Adapter<AssignmentAdapter.As
     @Override
     public void onBindViewHolder(@NonNull AssignmentViewHolder holder, int position) {
         holder.unitNotesName.setText(assignmentList.get(position).getAssignmentName());
-        holder.unitNotesName.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(assignmentList.get(position).getAssignmentLink()));
-                holder.unitNotesName.getContext().startActivity(intent);
-            }
-        });
     }
 
     @NonNull
@@ -55,6 +57,18 @@ public class AssignmentAdapter extends RecyclerView.Adapter<AssignmentAdapter.As
         public AssignmentViewHolder(@NonNull View itemView) {
             super(itemView);
             unitNotesName = itemView.findViewById(R.id.unitNotesName);
+
+            unitNotesName.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(adapterListener!=null) {
+                        int pos = getAdapterPosition();
+                        if(pos != RecyclerView.NO_POSITION){
+                            adapterListener.onAssignmentClicked(pos,unitNotesName.getText().toString());
+                        }
+                    }
+                }
+            });
         }
     }
 }

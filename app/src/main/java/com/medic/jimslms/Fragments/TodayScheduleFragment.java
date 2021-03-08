@@ -64,7 +64,7 @@ public class TodayScheduleFragment extends Fragment {
         Date date = calendar.getTime();
         SimpleDateFormat sdf = new SimpleDateFormat("ddMM");
         String today = sdf.format(date);
-        scheduleRef = FirebaseDatabase.getInstance().getReference("Courses").child("MCA").child("1").child("Schedule").child(today);
+        scheduleRef = FirebaseDatabase.getInstance().getReference("Courses").child("MCA").child("1").child("Schedule").child("1302");
         scheduleOptions = new FirebaseRecyclerOptions.Builder<Subject>().setQuery(scheduleRef,Subject.class).build();
         scheduleAdapter = new FirebaseRecyclerAdapter<Subject, ScheduleViewHolder>(scheduleOptions) {
             @Override

@@ -79,7 +79,7 @@ public class StudentCollegeDetailsFragment extends Fragment {
             notesRef.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    noOfMyNotes.setText(snapshot.getChildrenCount() + " My Notes");
+                    noOfMyNotes.setText("My Notes: " + snapshot.getChildrenCount());
                 }
 
                 @Override
@@ -99,7 +99,7 @@ public class StudentCollegeDetailsFragment extends Fragment {
             todoRef.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    noOfToDo.setText(snapshot.getChildrenCount() + " To Do Tasks");
+                    noOfToDo.setText("To Do Tasks: " + snapshot.getChildrenCount());
                 }
 
                 @Override

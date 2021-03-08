@@ -73,6 +73,7 @@ public class LogInFragment extends Fragment {
 
         return view;
     }
+
     private void checkLogIn(){
         if(session.isLoggedIn()){
             getFragmentManager().beginTransaction().replace(R.id.mainActivity,new HomePageFragment()).commit();

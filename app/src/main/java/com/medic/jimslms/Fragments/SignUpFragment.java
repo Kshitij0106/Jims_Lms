@@ -125,6 +125,8 @@ public class SignUpFragment extends Fragment {
                         userEmailSignUp.setError("Can't be Empty");
                     } else if (phn.isEmpty()) {
                         userPhoneSignUp.setError("Can't be Empty");
+                    } else if (phn.length()<10) {
+                        userPhoneSignUp.setError("Invalid Phone Number");
                     } else if (pass.isEmpty()) {
                         userPasswordSignUp.setError("Can't be Empty");
                     } else if (confirmPass.isEmpty()) {
@@ -152,9 +154,9 @@ public class SignUpFragment extends Fragment {
                                 user.setUserCourse(userCourseSpinnerSignUp.getSelectedItem().toString());
                                 user.setUserSem(sem);
 
-                                if(userShift2SigUp.isSelected()){
+                                if (userShift2SigUp.isSelected()) {
                                     user.setUserShift("2");
-                                }else{
+                                } else {
                                     user.setUserShift("1");
                                 }
 
@@ -197,7 +199,7 @@ public class SignUpFragment extends Fragment {
         });
     }
 
-    private void disableTextView(TextView t1){
+    private void disableTextView(TextView t1) {
         t1.setSelected(false);
         t1.setTextColor(Color.BLACK);
         t1.setBackgroundResource(R.drawable.edit_text_background);
@@ -241,7 +243,7 @@ public class SignUpFragment extends Fragment {
         });
     }
 
-    private void showHidePassword(){
+    private void showHidePassword() {
         userPasswordSignUp.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {

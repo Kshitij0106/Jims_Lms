@@ -47,7 +47,7 @@ public class HomePageFragment extends Fragment {
     private SwipeRefreshLayout swipeLayoutHomePage;
     private MaterialTextView userNameHomePage;
     private TextView userCourseText, userSemText, userShiftText;
-    private ImageView searchSubjectButton;
+    private ImageView searchSubjectButton,aboutButton;
     private EditText searchSubject;
     private MaterialButton clsScheduleButton;
     private CardView cardViewProfile, cardViewMyNotes, cardViewAttendance, cardViewToDo, cardViewAssignment, cardViewFavSubjects;
@@ -73,6 +73,7 @@ public class HomePageFragment extends Fragment {
         homePageRecyclerView = view.findViewById(R.id.homePageRecyclerView);
 
         cardViewProfile = view.findViewById(R.id.cardViewProfile);
+        aboutButton = view.findViewById(R.id.aboutButton);
         cardViewMyNotes = view.findViewById(R.id.cardViewMyNotes);
         cardViewAttendance = view.findViewById(R.id.cardViewAttendance);
         cardViewToDo = view.findViewById(R.id.cardViewToDo);
@@ -129,6 +130,7 @@ public class HomePageFragment extends Fragment {
                     userShiftText.setText(snapshot.child("userShift").getValue().toString());
                     userSemText.setText(snapshot.child("userSem").getValue().toString());
                     loadSubjects("");
+                    goToCollegeInfo();
                 }
 
                 @Override
@@ -238,6 +240,20 @@ public class HomePageFragment extends Fragment {
         } else {
             Toast.makeText(getContext(), "Check your internet connection", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void goToCollegeInfo(){
+        String course = userCourseText.getText().toString();
+        aboutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle cName = new Bundle();
+                cName.putString("courseName",course);
+                AboutUsFragment aboutUsFragment = new AboutUsFragment();
+                aboutUsFragment.setArguments(cName);
+                getFragmentManager().beginTransaction().replace(R.id.mainActivity,aboutUsFragment).addToBackStack(" ").commit();
+            }
+        });
     }
 
     @Override

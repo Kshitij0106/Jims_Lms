@@ -123,7 +123,18 @@ public class SubjectNotesFragment extends Fragment {
                 holder.unitNoSubjectNotes.setText(model.getUnitNo());
                 assignmentList = model.getAssignmentList();
 
-                AssignmentAdapter adapter = new AssignmentAdapter(getActivity(),assignmentList);
+                AssignmentAdapter adapter = new AssignmentAdapter(getActivity(), assignmentList);
+                adapter.setOnCardClickedListener(new AssignmentAdapter.OnCardClickListener() {
+                    @Override
+                    public void onAssignmentClicked(int pos, String name) {
+                        Bundle assigBundle = new Bundle();
+                        assigBundle.putString("assigName", name);
+                        assigBundle.putString("subjName", subjName);
+                        UploadAssignmentFragment assignmentFragment = new UploadAssignmentFragment();
+                        assignmentFragment.setArguments(assigBundle);
+                        getFragmentManager().beginTransaction().replace(R.id.mainActivity, assignmentFragment).addToBackStack("").commit();
+                    }
+                });
                 holder.recyclerViewUnitNotes.setLayoutManager(new LinearLayoutManager(getContext()));
                 holder.recyclerViewUnitNotes.setAdapter(adapter);
             }

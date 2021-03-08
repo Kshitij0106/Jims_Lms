@@ -45,6 +45,7 @@
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:layout_margin="15dp"
+                            android:padding="2dp"
                             android:src="@drawable/user_name"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -58,9 +59,20 @@
                             android:padding="4dp"
                             android:textColor="#fff"
                             android:textSize="16sp"
+                            android:maxLength="20"
                             app:layout_constraintBottom_toBottomOf="@+id/userNameLogo"
                             app:layout_constraintStart_toEndOf="@+id/userNameLogo"
                             app:layout_constraintTop_toTopOf="@+id/userNameLogo" />
+
+                        <ImageView
+                            android:id="@+id/aboutButton"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_margin="15dp"
+                            android:padding="3dp"
+                            android:src="@drawable/about_icon"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"/>
 
                         <EditText
                             android:id="@+id/searchSubject"
@@ -101,7 +113,7 @@
                         android:layout_marginTop="20dp"
                         android:layout_marginRight="50dp"
                         android:backgroundTint="@color/jims_color2"
-                        android:text="Today Schedule"
+                        android:text="Today's Schedule"
                         android:textAllCaps="false"
                         android:textColor="#fff"
                         android:textSize="16sp"
