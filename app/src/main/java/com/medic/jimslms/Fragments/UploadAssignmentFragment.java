@@ -257,5 +257,5 @@ public class UploadAssignmentFragment extends Fragment {
             }
         }
     }
-    
+
 }
