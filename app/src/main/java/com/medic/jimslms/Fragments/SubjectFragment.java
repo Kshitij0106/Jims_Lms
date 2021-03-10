@@ -102,7 +102,7 @@ public class SubjectFragment extends Fragment {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setDataAndType(Uri.parse(url),"application/pdf");
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(Intent.createChooser(intent,"open"));
+        startActivity(Intent.createChooser(intent,"Open"));
     }
 
     private void subjectNotes(String course,String sem,String subjectName){

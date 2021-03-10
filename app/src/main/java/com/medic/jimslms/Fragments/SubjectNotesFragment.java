@@ -126,9 +126,12 @@ public class SubjectNotesFragment extends Fragment {
                 AssignmentAdapter adapter = new AssignmentAdapter(getActivity(), assignmentList);
                 adapter.setOnCardClickedListener(new AssignmentAdapter.OnCardClickListener() {
                     @Override
-                    public void onAssignmentClicked(int pos, String name) {
+                    public void onAssignmentClicked(int pos, String name,String link,String upload,String due) {
                         Bundle assigBundle = new Bundle();
                         assigBundle.putString("assigName", name);
+                        assigBundle.putString("assigLink", link);
+                        assigBundle.putString("assigUpload", upload);
+                        assigBundle.putString("assigDue", due);
                         assigBundle.putString("subjName", subjName);
                         UploadAssignmentFragment assignmentFragment = new UploadAssignmentFragment();
                         assignmentFragment.setArguments(assigBundle);

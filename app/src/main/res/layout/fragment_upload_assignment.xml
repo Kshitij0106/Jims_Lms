@@ -60,10 +60,29 @@
         android:gravity="left|center"
         android:layout_marginLeft="10dp"
         android:padding="3dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayoutAssignmentDetails" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/assignLinkAssignmentFragment"
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:drawableLeft="@drawable/notes_subject"
+        android:drawablePadding="20dp"
+        android:gravity="left|center"
+        android:paddingLeft="20dp"
+        android:text="View Assignment"
+        android:textColor="#000"
+        android:textSize="17sp"
+        android:background="@drawable/edit_text_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/assignmentDetailsTextView" />
 
     <TextView
         android:id="@+id/tv1AssignmentFragment"
@@ -78,7 +97,7 @@
         android:textColor="#434343"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/assignmentDetailsTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/assignLinkAssignmentFragment" />
 
     <TextView
         android:id="@+id/assignNameAssignmentFragment"
@@ -104,7 +123,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="5dp"
         android:padding="3dp"
-        android:text="Assignment Stauts:"
+        android:text="Assignment Status:"
         android:textColor="#434343"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -118,7 +137,6 @@
         android:gravity="right|center"
         android:maxLength="30"
         android:padding="3dp"
-        android:text="Not Uploaded"
         android:textColor="#434343"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/tv2AssignmentFragment"
@@ -148,7 +166,6 @@
         android:maxLength="20"
         android:padding="3dp"
         android:layout_marginRight="10dp"
-        android:text="28-Feb-2021"
         android:textColor="#434343"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/tv3AssignmentFragment"
@@ -178,7 +195,6 @@
         android:maxLength="20"
         android:padding="3dp"
         android:layout_marginRight="10dp"
-        android:text="28-December-2021"
         android:textColor="#434343"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/tv4AssignmentFragment"

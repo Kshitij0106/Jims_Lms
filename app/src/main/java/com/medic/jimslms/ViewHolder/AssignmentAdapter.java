@@ -21,12 +21,13 @@ public class AssignmentAdapter extends RecyclerView.Adapter<AssignmentAdapter.As
     private Context ctx;
     private List<Assignment> assignmentList;
     private OnCardClickListener adapterListener;
+    String assignmentLink, assignmentUpload, assignmentDue;
 
-    public interface OnCardClickListener{
-        void onAssignmentClicked(int pos,String name);
+    public interface OnCardClickListener {
+        void onAssignmentClicked(int pos, String name, String link, String upload, String due);
     }
 
-    public void setOnCardClickedListener(OnCardClickListener onCardClickListener){
+    public void setOnCardClickedListener(OnCardClickListener onCardClickListener) {
         adapterListener = onCardClickListener;
     }
 
@@ -38,6 +39,9 @@ public class AssignmentAdapter extends RecyclerView.Adapter<AssignmentAdapter.As
     @Override
     public void onBindViewHolder(@NonNull AssignmentViewHolder holder, int position) {
         holder.unitNotesName.setText(assignmentList.get(position).getAssignmentName());
+        assignmentLink = assignmentList.get(position).getAssignmentLink();
+        assignmentUpload = assignmentList.get(position).getAssignmentUploadDate();
+        assignmentDue = assignmentList.get(position).getAssignmentDue();
     }
 
     @NonNull
@@ -54,6 +58,7 @@ public class AssignmentAdapter extends RecyclerView.Adapter<AssignmentAdapter.As
 
     public class AssignmentViewHolder extends RecyclerView.ViewHolder {
         public MaterialTextView unitNotesName;
+
         public AssignmentViewHolder(@NonNull View itemView) {
             super(itemView);
             unitNotesName = itemView.findViewById(R.id.unitNotesName);
@@ -61,10 +66,10 @@ public class AssignmentAdapter extends RecyclerView.Adapter<AssignmentAdapter.As
             unitNotesName.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(adapterListener!=null) {
+                    if (adapterListener != null) {
                         int pos = getAdapterPosition();
-                        if(pos != RecyclerView.NO_POSITION){
-                            adapterListener.onAssignmentClicked(pos,unitNotesName.getText().toString());
+                        if (pos != RecyclerView.NO_POSITION) {
+                            adapterListener.onAssignmentClicked(pos, unitNotesName.getText().toString(), assignmentLink, assignmentUpload, assignmentDue);
                         }
                     }
                 }
