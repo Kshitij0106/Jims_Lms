@@ -59,11 +59,11 @@ public class SubjectFragment extends Fragment {
         subjectNameSubjectFragment.setText(subjectName);
 
         goBack();
-        getSubjectInfo(course,sem,subjectName);
-        subjectNotes(course,sem,subjectName);
+        getSubjectInfo(course, sem, subjectName);
+        subjectNotes(course, sem, subjectName);
         mySubjectNotes();
-        subjectAssignment(course,sem,subjectName);
-        teacherInfo(course,sem,subjectName);
+        subjectAssignment(course, sem, subjectName);
+        getTeacherInfo(course, sem, subjectName);
 
         return view;
     }
@@ -77,7 +77,7 @@ public class SubjectFragment extends Fragment {
         });
     }
 
-    private void getSubjectInfo(String course,String sem,String sName) {
+    private void getSubjectInfo(String course, String sem, String sName) {
         syllabusSubjectFragment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -98,18 +98,18 @@ public class SubjectFragment extends Fragment {
         });
     }
 
-    private void subjectSyllabus(String url){
+    private void subjectSyllabus(String url) {
         Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setDataAndType(Uri.parse(url),"application/pdf");
+        intent.setDataAndType(Uri.parse(url), "application/pdf");
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(Intent.createChooser(intent,"Open"));
+        startActivity(Intent.createChooser(intent, "Open"));
     }
 
-    private void subjectNotes(String course,String sem,String subjectName){
+    private void subjectNotes(String course, String sem, String subjectName) {
         subjectNotesSubjectFragment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendSubjectData(course,sem,subjectName,"Notes");
+                sendSubjectData(course, sem, subjectName, "Notes");
             }
         });
     }
@@ -120,38 +120,54 @@ public class SubjectFragment extends Fragment {
             public void onClick(View v) {
                 Bundle subjNameBundle = new Bundle();
                 String subName = subjectNameSubjectFragment.getText().toString();
-                subjNameBundle.putString("SubjectName",subName);
-                subjNameBundle.putString("showType","showSubject");
+                subjNameBundle.putString("SubjectName", subName);
+                subjNameBundle.putString("showType", "showSubject");
                 MyNotesFragment notesFragment = new MyNotesFragment();
                 notesFragment.setArguments(subjNameBundle);
-                getFragmentManager().beginTransaction().replace(R.id.mainActivity,notesFragment).addToBackStack(" ").commit();
+                getFragmentManager().beginTransaction().replace(R.id.mainActivity, notesFragment).addToBackStack(" ").commit();
             }
         });
     }
 
-    private void subjectAssignment(String course,String sem,String subjectName){
+    private void subjectAssignment(String course, String sem, String subjectName) {
         assignmentSubjectFragment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendSubjectData(course,sem,subjectName,"Assignment");
+                sendSubjectData(course, sem, subjectName, "Assignment");
             }
         });
     }
 
-    private void sendSubjectData(String course,String sem,String subjectName,String type){
+    private void sendSubjectData(String course, String sem, String subjectName, String type) {
         Bundle subjectDataBundle = new Bundle();
-        subjectDataBundle.putString("userCourse",course);
-        subjectDataBundle.putString("userSem",sem);
-        subjectDataBundle.putString("subjectName",subjectName);
-        subjectDataBundle.putString("type",type);
+        subjectDataBundle.putString("userCourse", course);
+        subjectDataBundle.putString("userSem", sem);
+        subjectDataBundle.putString("subjectName", subjectName);
+        subjectDataBundle.putString("type", type);
 
         SubjectNotesFragment notesFragment = new SubjectNotesFragment();
         notesFragment.setArguments(subjectDataBundle);
-        getFragmentManager().beginTransaction().replace(R.id.mainActivity,notesFragment).addToBackStack(" ").commit();
+        getFragmentManager().beginTransaction().replace(R.id.mainActivity, notesFragment).addToBackStack(" ").commit();
     }
 
-    private void teacherInfo(String course,String sem,String sName) {
-        teacherRef = FirebaseDatabase.getInstance().getReference("Courses").child(course).child(sem).child("Subjects").child(sName).child("Teacher");
+    private void getTeacherInfo(String course, String sem, String sName) {
+        subjectRef = FirebaseDatabase.getInstance().getReference("Courses").child(course).child(sem).child("Subjects").child(sName);
+        subjectRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                String tId = snapshot.child("teacherId").getValue().toString();
+                teacherInfo(tId);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void teacherInfo(String teacherId) {
+        teacherRef = FirebaseDatabase.getInstance().getReference("Teacher").child(teacherId);
         teacherRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

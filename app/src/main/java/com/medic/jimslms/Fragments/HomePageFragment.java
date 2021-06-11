@@ -17,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -46,9 +47,11 @@ import java.util.TimeZone;
 public class HomePageFragment extends Fragment {
     private SwipeRefreshLayout swipeLayoutHomePage;
     private MaterialTextView userNameHomePage;
-    private TextView userCourseText, userSemText, userShiftText;
-    private ImageView searchSubjectButton,aboutButton;
+    private TextView noConnectionText, offlineMode, userCourseText, userSemText, userShiftText;
+    private ImageView searchSubjectButton, aboutButton;
     private EditText searchSubject;
+    private View v1,v2;
+    private GridLayout gridLayoutHomePage;
     private MaterialButton clsScheduleButton;
     private CardView cardViewProfile, cardViewMyNotes, cardViewAttendance, cardViewToDo, cardViewAssignment, cardViewFavSubjects;
     private RecyclerView homePageRecyclerView;
@@ -80,6 +83,13 @@ public class HomePageFragment extends Fragment {
         cardViewAssignment = view.findViewById(R.id.cardViewAssignment);
         cardViewFavSubjects = view.findViewById(R.id.cardViewFavSubjects);
 
+        v1 = view.findViewById(R.id.v1);
+        v2 = view.findViewById(R.id.v2);
+        gridLayoutHomePage = view.findViewById(R.id.gridLayoutHomePage);
+
+        noConnectionText = view.findViewById(R.id.noConnectionText);
+        offlineMode = view.findViewById(R.id.offlineMode);
+
         userCourseText = view.findViewById(R.id.userCourseText);
         userSemText = view.findViewById(R.id.userSemText);
         userShiftText = view.findViewById(R.id.userShiftText);
@@ -96,9 +106,19 @@ public class HomePageFragment extends Fragment {
                 goTo();
             }
         });
-        getUserInfo(uid);
-        searchSubject();
-        goTo();
+        if(Connectivity.isConnectedToInternet(getContext())) {
+            getUserInfo(uid);
+            searchSubject();
+            goTo();
+        }else{
+            noConnectionText.setVisibility(View.VISIBLE);
+            offlineMode.setVisibility(View.VISIBLE);
+            homePageRecyclerView.setVisibility(View.GONE);
+            clsScheduleButton.setVisibility(View.GONE);
+            v1.setVisibility(View.GONE);
+            v2.setVisibility(View.GONE);
+            gridLayoutHomePage.setVisibility(View.GONE);
+        }
 
         return view;
     }
@@ -242,16 +262,16 @@ public class HomePageFragment extends Fragment {
         }
     }
 
-    private void goToCollegeInfo(){
+    private void goToCollegeInfo() {
         String course = userCourseText.getText().toString();
         aboutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Bundle cName = new Bundle();
-                cName.putString("courseName",course);
+                cName.putString("courseName", course);
                 AboutUsFragment aboutUsFragment = new AboutUsFragment();
                 aboutUsFragment.setArguments(cName);
-                getFragmentManager().beginTransaction().replace(R.id.mainActivity,aboutUsFragment).addToBackStack(" ").commit();
+                getFragmentManager().beginTransaction().replace(R.id.mainActivity, aboutUsFragment).addToBackStack(" ").commit();
             }
         });
     }
