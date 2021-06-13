@@ -178,11 +178,27 @@ public class SubjectFragment extends Fragment {
                 nameSubjectTeacher.setText(tName);
                 mailSubjectTeacher.setText(tMail);
                 Picasso.get().load(tPic).into(imageSubjectTeacher);
+                contactTeacher(teacherId, tName);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void contactTeacher(String tId, String tName) {
+        contactTeacherButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle teacherIdBundle = new Bundle();
+                teacherIdBundle.putString("tid", tId);
+                teacherIdBundle.putString("tName", tName);
+
+                ChatFragment chat = new ChatFragment();
+                chat.setArguments(teacherIdBundle);
+                getFragmentManager().beginTransaction().replace(R.id.mainActivity, chat).addToBackStack(" ").commit();
             }
         });
     }
